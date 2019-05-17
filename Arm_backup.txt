@@ -1,0 +1,96 @@
+//Move the gripper upward.
+void Gripper_upward(){
+  //move the short arm
+  S_angle_buf = S_angle - 0.75;  
+  
+  //compute the new angle of the long arm
+  L_angle_buf = acos((S_arm * cos(S_angle_buf / 180 * PI) + X) / L_arm) / PI * 180;
+  
+  //if angle of long arm is legal, write in
+  if(L_angle_buf >= L_angle_ini && L_angle_buf <= 180){
+    L_angle = L_angle_buf;
+    S_angle = S_angle_buf;
+    
+    //compute the new coordination
+    X = L_arm * cos(L_angle * PI / 180) - S_arm * cos(S_angle * PI / 180);
+    Y = L_arm * sin(L_angle * PI / 180) - S_arm * sin(S_angle * PI / 180);
+    Serial.println(L_angle);
+    Serial.println(S_angle);
+    pwm.setPWM(0, 0, JX_MIN + (L_angle - L_angle_ini) * JX_SC);
+    pwm.setPWM(3, 0, JX_MAX - (S_angle - S_angle_ini) * JX_SC);
+  }
+  return;
+}
+
+//Move the gripper downward.
+void Gripper_downward(){
+  //move the short arm
+  S_angle_buf = S_angle + 0.75;  
+  
+  //compute the new angle of the long arm
+  L_angle_buf = acos((S_arm * cos(S_angle_buf / 180 * PI) + X) / L_arm) / PI * 180;
+  
+  //if angle of long arm is legal, write in
+  if(L_angle_buf >= L_angle_ini && L_angle_buf <= 180){
+    L_angle = L_angle_buf;
+    S_angle = S_angle_buf;
+    //compute the new coordination
+    X = L_arm * cos(L_angle * PI / 180) - S_arm * cos(S_angle * PI / 180);
+    Y = L_arm * sin(L_angle * PI / 180) - S_arm * sin(S_angle * PI / 180);
+    Serial.println(L_angle);
+    Serial.println(S_angle);
+    pwm.setPWM(0, 0, JX_MIN + (L_angle - L_angle_ini) * JX_SC);
+    pwm.setPWM(3, 0, JX_MAX - (S_angle - S_angle_ini) * JX_SC);
+  }
+  return;
+}
+
+//Move the gripper forward.
+void Gripper_forward(){
+  
+  
+    //move the short arm
+    L_angle_buf = L_angle + 0.75;  
+    //compute the new angle of the long arm
+    S_angle_buf = asin((L_arm * sin(L_angle_buf / 180 * PI) - Y) / S_arm) / PI * 180;
+  
+  
+  //if angle of long arm is legal, write in
+  if(S_angle_buf >= S_angle_ini && S_angle_buf <= 175 && L_angle_buf >= L_angle_ini && L_angle_buf <= 180){
+    L_angle = L_angle_buf;
+    S_angle = S_angle_buf;
+    //compute the new coordination
+    Serial.println(L_angle);
+    Serial.println(S_angle);
+    X = L_arm * cos(L_angle * PI / 180) - S_arm * cos(S_angle * PI / 180);
+    Y = L_arm * sin(L_angle * PI / 180) - S_arm * sin(S_angle * PI / 180);
+    pwm.setPWM(0, 0, JX_MIN + (L_angle - L_angle_ini) * JX_SC);
+    pwm.setPWM(3, 0, JX_MAX - (S_angle - S_angle_ini) * JX_SC);
+  }
+  return;
+}
+
+//Move the gripper backward.
+void Gripper_backward(){
+  
+
+    //move the short arm
+    L_angle_buf = L_angle - 0.75;  
+    //compute the new angle of the long arm
+    S_angle_buf = asin((L_arm * sin(L_angle_buf / 180 * PI) - Y) / S_arm) / PI * 180;
+  
+  
+  //if angle of long arm is legal, write in
+  if(S_angle_buf >= S_angle_ini && S_angle_buf <= 175 && L_angle_buf >= L_angle_ini && L_angle_buf <= 180){
+    L_angle = L_angle_buf;
+    S_angle = S_angle_buf;
+    //compute the new coordination
+    Serial.println(L_angle);
+    Serial.println(S_angle);
+    X = L_arm * cos(L_angle * PI / 180) - S_arm * cos(S_angle * PI / 180);
+    Y = L_arm * sin(L_angle * PI / 180) - S_arm * sin(S_angle * PI / 180);
+    pwm.setPWM(0, 0, JX_MIN + (L_angle - L_angle_ini) * JX_SC);
+    pwm.setPWM(3, 0, JX_MAX - (S_angle - S_angle_ini) * JX_SC);
+  }
+  return;
+}
