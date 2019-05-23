@@ -38,6 +38,7 @@ double Y = L_arm * sin((180 - L_angle) * PI / 180) - S_arm * sin(S_angle * PI / 
 double X_buf = X;
 double Y_buf = Y;
 
+
 //Variables for gripper
 double gripper_angle = 0;
 double head_angle = 86;
@@ -73,6 +74,11 @@ void setup() {
   
   Ini_Arm();  //Initialize the arm 
   Ini_Gripper();
+
+  Serial.print("X:");
+    Serial.println(X);
+    Serial.print("Y:");
+    Serial.println(Y);
 }
 
 void loop() {
@@ -86,14 +92,14 @@ void loop() {
   /*Movement of the Gripper*/
   if(ps2x.Analog(PSS_RY) > 130 || ps2x.Analog(PSS_RY) < 125 || ps2x.Analog(PSS_RX) > 130 || ps2x.Analog(PSS_RX) < 125){
     if (ps2x.Analog(PSS_RY) < 125)
-      Y_buf += 0.4;
+      Y_buf += 0.25;
     else if (ps2x.Analog(PSS_RY) > 130)
-      Y_buf -= 0.4;
+      Y_buf -= 0.25;
   
     if (ps2x.Analog(PSS_RX) < 125)
-      X_buf -= 0.4;
+      X_buf -= 0.25;
     else if (ps2x.Analog(PSS_RX) > 130)
-      X_buf += 0.4;
+      X_buf += 0.25;
 
     Move();
   }
@@ -107,6 +113,10 @@ void loop() {
     Head_right();
   else if(ps2x.Button(PSB_SQUARE))
     Head_left();
+
+  To_Point(14.00, 13.00);
+  To_Point(14.00, 7.00);
+  
 
   delay(25);
 }
