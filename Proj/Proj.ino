@@ -69,11 +69,14 @@ void setup()
   Ini_Arm(); //Initialize the arm
   Ini_Gripper();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
   Serial.print("X:");
   Serial.println(X);
   Serial.print("Y:");
   Serial.println(Y);
+=======
+>>>>>>> parent of f2ea231... Move to point DONE.
 =======
 >>>>>>> parent of f2ea231... Move to point DONE.
 }
@@ -95,9 +98,12 @@ void loop()
       Y_buf += 0.4;
     else if (ps2x.Analog(PSS_RY) > 130)
 <<<<<<< HEAD
+<<<<<<< HEAD
       Y_buf -= 0.25;
 
 =======
+=======
+>>>>>>> parent of f2ea231... Move to point DONE.
       Y_buf -= 0.4;
   
 >>>>>>> parent of f2ea231... Move to point DONE.
@@ -120,9 +126,12 @@ void loop()
     Head_left();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   To_Point(14.00, 13.00);
   To_Point(14.00, 7.00);
 
+=======
+>>>>>>> parent of f2ea231... Move to point DONE.
 =======
 >>>>>>> parent of f2ea231... Move to point DONE.
   delay(25);
