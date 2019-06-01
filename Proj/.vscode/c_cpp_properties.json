@@ -2,15 +2,22 @@
     "configurations": [
         {
             "name": "Win32",
-            "includePath": [ 
+            "browse": {
+                "limitSymbolsToIncludedHeaders": false,
+                "path": [
+                    "C:\\Users\\ACER\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\2.5.2\\cores\\esp8266",
+                    "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\libraries",
+                    "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\cores\\arduino",
+                    "C:\\Users\\ACER\\Documents\\Arduino\\libraries",
+                    "C:\\Users\\ACER\\Documents\\Arduino\\libraries\\Adafruit-PWM-Servo-Driver-Library-master",
+                    "C:\\Users\\ACER\\Documents\\Arduino\\libraries\\PS2X_lib\\**"
+                ]
+            },
+            "includePath": [
                 "C:\\Users\\ACER\\AppData\\Local\\Arduino15\\packages\\esp8266\\tools\\**",
                 "C:\\Users\\ACER\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\2.5.2\\**",
                 "C:\\\\Program Files (x86)\\\\Arduino\\\\tools\\\\**",
-                "C:\\\\Program Files (x86)\\\\Arduino\\\\hardware\\\\arduino\\\\avr\\\\**",
-                "C:\\Users\\ACER\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\2.5.2\\cores\\esp8266",
-                "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\libraries",
-                "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\cores\\arduino",
-                "C:\\Users\\ACER\\Documents\\Arduino\\libraries"
+                "C:\\\\Program Files (x86)\\\\Arduino\\\\hardware\\\\arduino\\\\avr\\\\**"
             ],
             "forcedInclude": [
                 "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\cores\\arduino\\Arduino.h"

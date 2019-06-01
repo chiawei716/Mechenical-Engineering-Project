@@ -1,12 +1,12 @@
 void Ini_Gripper(){
-  pwm.setPWM(5, 0, SG90_MIN);
+  pwm.setPWM(6, 0, SG90_MIN);
   pwm.setPWM(8, 0, SG90_MIN + head_angle * SG90_SC);
 }
 
 void Grap(){
-  if(gripper_angle < 178){
+  if(gripper_angle < 150){
     gripper_angle += 2;
-    pwm.setPWM(5, 0, SG90_MIN + gripper_angle * SG90_SC);
+    pwm.setPWM(6, 0, SG90_MIN + gripper_angle * SG90_SC);
   }
   return;
 }
@@ -14,7 +14,7 @@ void Grap(){
 void Release(){
   if(gripper_angle > 2){
     gripper_angle -= 2;
-    pwm.setPWM(5, 0, SG90_MIN + gripper_angle * SG90_SC);
+    pwm.setPWM(6, 0, SG90_MIN + gripper_angle * SG90_SC);
   }
   return;
 }
