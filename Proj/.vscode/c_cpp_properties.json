@@ -10,7 +10,7 @@
                     "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\cores\\arduino",
                     "C:\\Users\\ACER\\Documents\\Arduino\\libraries",
                     "C:\\Users\\ACER\\Documents\\Arduino\\libraries\\Adafruit-PWM-Servo-Driver-Library-master",
-                    "C:\\Users\\ACER\\Documents\\Arduino\\libraries\\PS2X_lib\\**"
+                    "C:\\Users\\ACER\\Documents\\Arduino\\libraries\\PS2X_lib\\PS2X_lib.h"
                 ]
             },
             "includePath": [

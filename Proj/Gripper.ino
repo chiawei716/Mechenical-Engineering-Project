@@ -1,38 +1,36 @@
 void Ini_Gripper(){
-  pwm.setPWM(6, 0, SG90_MIN);
-  pwm.setPWM(8, 0, SG90_MIN + head_angle * SG90_SC);
+  pwm.setPWM( PIN_GRIPPER, 0, SG90_MIN + Gripper_angle * SG90_SC);
+  pwm.setPWM( PIN_HEAD, 0, SG90_MIN + Head_angle * SG90_SC);
 }
 
 void Grap(){
-  if(gripper_angle < 150){
-    gripper_angle += 2;
-    pwm.setPWM(6, 0, SG90_MIN + gripper_angle * SG90_SC);
+  if(Gripper_angle < Gripper_angle_MAX){
+    Gripper_angle += Grap_velocity;
+    pwm.setPWM( PIN_GRIPPER, 0, SG90_MIN + Gripper_angle * SG90_SC);
   }
   return;
 }
 
 void Release(){
-  if(gripper_angle > 2){
-    gripper_angle -= 2;
-    pwm.setPWM(6, 0, SG90_MIN + gripper_angle * SG90_SC);
-  }
-  return;
-}
-
-void Head_right(){
-  if(head_angle < 178){
-    head_angle += 2;
-    pwm.setPWM(8, 0, SG90_MIN + head_angle * SG90_SC);
-    Serial.println(head_angle);
+  if(Gripper_angle > Gripper_angle_ini){
+    Gripper_angle -= Release_velocity;
+    pwm.setPWM( PIN_GRIPPER, 0, SG90_MIN + Gripper_angle * SG90_SC);
   }
   return;
 }
 
 void Head_left(){
-  if(head_angle > 2){
-    head_angle -= 2;
-    pwm.setPWM(8, 0, SG90_MIN + head_angle * SG90_SC);
-    Serial.println(head_angle);
+  if(Head_angle < Head_angle_MAX){
+    Head_angle += Head_velocity;
+    pwm.setPWM( PIN_HEAD, 0, SG90_MIN + Head_angle * SG90_SC);
+  }
+  return;
+}
+
+void Head_right(){
+  if(Head_angle > Head_angle_MIN){
+    Head_angle -= Head_velocity;
+    pwm.setPWM( PIN_HEAD, 0, SG90_MIN + Head_angle * SG90_SC);
   }
   return;
 }
