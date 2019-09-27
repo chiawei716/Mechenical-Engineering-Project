@@ -17,7 +17,7 @@ void stopped(){
   digitalWrite(Motor3_b, LOW);
 }
 
-void move_backward(){
+void move_forward(){
   digitalWrite(Motor1_a, LOW); 
   digitalWrite(Motor1_b, HIGH);
   digitalWrite(Motor3_a,LOW);
@@ -27,7 +27,7 @@ void move_backward(){
   digitalWrite(Motor2_b, LOW);
 }
 
-void move_forward(){
+void move_backward(){
   digitalWrite(Motor1_a, HIGH); 
   digitalWrite(Motor1_b, LOW);
   digitalWrite(Motor2_a, LOW);
@@ -36,7 +36,7 @@ void move_forward(){
   digitalWrite(Motor3_b,LOW);
 }
 
-void move_right_forward(){
+void move_left_backward(){
   digitalWrite(Motor1_a,LOW);
   digitalWrite(Motor1_b,LOW);
   digitalWrite(Motor2_a, LOW);  //Move backward
@@ -45,7 +45,7 @@ void move_right_forward(){
   digitalWrite(Motor3_b, LOW);
 }
 
-void move_left_forward(){
+void move_right_backward(){
   digitalWrite(Motor1_a, HIGH); 
   digitalWrite(Motor1_b,LOW);
   digitalWrite(Motor2_a, LOW);
@@ -53,7 +53,7 @@ void move_left_forward(){
   digitalWrite(Motor3_a, LOW);
   digitalWrite(Motor3_b, HIGH);
 }    
-void move_right_backward(){
+void move_left_forward(){
   digitalWrite(Motor1_a, LOW);
   digitalWrite(Motor1_b, HIGH);
   digitalWrite(Motor2_a, LOW);
@@ -61,7 +61,7 @@ void move_right_backward(){
   digitalWrite(Motor3_a, HIGH);
   digitalWrite(Motor3_b,LOW );
 }
-void move_left_backward(){
+void move_right_forward(){
   digitalWrite(Motor1_a, LOW);
   digitalWrite(Motor1_b, LOW);
   digitalWrite(Motor2_a, HIGH);
@@ -71,7 +71,8 @@ void move_left_backward(){
 }
 
 
-void move_rightward() {
+void move_leftward() {
+  /*
   if(righting == false){
     digitalWrite(Motor1_a,LOW);
     digitalWrite(Motor1_b,LOW);
@@ -82,7 +83,7 @@ void move_rightward() {
     digitalWrite(Motor3_a,HIGH);
     digitalWrite(Motor3_b,LOW);
     delay(35);
-  }
+  }*/
   digitalWrite(Motor1_a,LOW);
   analogWrite(Motor1_b,120);
   digitalWrite(Motor2_a,LOW);
@@ -91,7 +92,7 @@ void move_rightward() {
   digitalWrite(Motor3_b,LOW);
 }
 
-void move_leftward() {
+void move_rightward() {
   digitalWrite(Motor1_a,HIGH);
   analogWrite(Motor1_b,110);
   digitalWrite(Motor2_a,HIGH);
@@ -134,7 +135,7 @@ void CCW(){
     digitalWrite(Motor3_b,HIGH);
   }
 */
-void move_slow_backward(){
+void move_slow_forward(){
   digitalWrite(Motor1_a, LOW);
   analogWrite(Motor1_b, 75);
   digitalWrite(Motor2_a, HIGH);
@@ -143,7 +144,7 @@ void move_slow_backward(){
   digitalWrite(Motor3_b, LOW);   
 }
 
-void move_slow_forward() {
+void move_slow_backward() {
   digitalWrite(Motor1_a, HIGH); 
   analogWrite(Motor1_b, 180);
   digitalWrite(Motor2_a, LOW);
@@ -152,7 +153,7 @@ void move_slow_forward() {
   digitalWrite(Motor3_b,LOW);
 }
 
-void move_slow_rightward() {
+void move_slow_leftward() {
   digitalWrite(Motor1_a,LOW);
   analogWrite(Motor1_b,33);
   digitalWrite(Motor2_a,LOW);
@@ -161,7 +162,7 @@ void move_slow_rightward() {
   analogWrite(Motor3_b,190);
 }
 
-void move_slow_leftward() {
+void move_slow_rightward() {
   digitalWrite(Motor1_a,HIGH);
   analogWrite(Motor1_b,215);
   digitalWrite(Motor2_a,HIGH);
@@ -169,50 +170,3 @@ void move_slow_leftward() {
   digitalWrite(Motor3_a,LOW);
   analogWrite(Motor3_b,68);
 }
-/*
-void step_back(){
-    digitalWrite(motor1in1,LOW);
-    digitalWrite(motor1in2,LOW); 
-    digitalWrite(motor2in1, LOW);  
-    digitalWrite(motor2in2, HIGH);
-    digitalWrite(motor3in1, HIGH)
-    digitalWrite(motor3in2, LOW);
-    delay(100);
-    digitalWrite(motor1in1,LOW);
-    digitalWrite(motor1in2,LOW);
-    digitalWrite(motor2in1,LOW);
-    digitalWrite(motor2in2,LOW);
-    digitalWrite(motor3in1,LOW);
-    digitalWrite(motor3in2,LOW);  
-  }
-void step_right(){
-      digitalWrite(motor1in1, HIGH); //OK!
-      digitalWrite(motor1in2,LOW);
-      digitalWrite(motor2in1, LOW);
-      analogWrite(motor2in2,150);
-      digitalWrite(motor3in1, LOW);
-      analogWrite(motor3in2, 150);
-      delay(100);
-      digitalWrite(motor1in1,LOW);
-      digitalWrite(motor1in2,LOW);
-      digitalWrite(motor2in1,LOW);
-      digitalWrite(motor2in2,LOW);
-      digitalWrite(motor3in1,LOW);
-      digitalWrite(motor3in2,LOW);  
-  
-  }
-void step_left(){
-      digitalWrite(motor1in1, LOW); //OK!
-      digitalWrite(motor1in2, HIGH);
-      digitalWrite(motor2in1, HIGH);
-      analogWrite(motor2in2,150);
-      digitalWrite(motor3in1, HIGH);
-      analogWrite(motor3in2, 150);
-      delay(100);
-      digitalWrite(motor1in1,LOW);
-      digitalWrite(motor1in2,LOW);
-      digitalWrite(motor2in1,LOW);
-      digitalWrite(motor2in2,LOW);
-      digitalWrite(motor3in1,LOW);
-      digitalWrite(motor3in2,LOW);  
- }*/

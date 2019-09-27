@@ -4,7 +4,7 @@ void Ini_Gripper(){
 }
 
 void Grap(){
-  if(Gripper_angle < Gripper_angle_MAX){
+  if(Gripper_angle <= Gripper_angle_MAX - Grap_velocity){
     Gripper_angle += Grap_velocity;
     pwm.setPWM( PIN_GRIPPER, 0, SG90_MIN + Gripper_angle * SG90_SC);
   }
@@ -12,7 +12,7 @@ void Grap(){
 }
 
 void Release(){
-  if(Gripper_angle > Gripper_angle_ini){
+  if(Gripper_angle >= Gripper_angle_ini + Release_velocity){
     Gripper_angle -= Release_velocity;
     pwm.setPWM( PIN_GRIPPER, 0, SG90_MIN + Gripper_angle * SG90_SC);
   }
